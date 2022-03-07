@@ -1,0 +1,40 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'groovy'
+}
+
+
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:4.1.0'
+    implementation 'org.ow2.asm:asm:7.1'
+    implementation 'org.ow2.asm:asm-commons:7.1'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir '../src/main/groovy'
+        }
+
+        java {
+            srcDir '../src/main/java'
+        }
+
+        resources {
+            srcDir '../src/main/resources'
+        }
+    }
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
