@@ -62,6 +62,7 @@ class MethodTimeTransform extends Transform{
                 || methodConfig.injectClass.length() == 0){
             return
         }
+        //com/maove/libutil/TimeMonitor == > TimeMonitor
         String injectClass = methodConfig.injectClass.substring(methodConfig.injectClass.lastIndexOf("/")+1);
         TransformOutputProvider outputProvider = transformInvocation.outputProvider
         if (outputProvider != null)  outputProvider.deleteAll()

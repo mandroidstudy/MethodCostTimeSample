@@ -18,11 +18,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("maoweiyi","costTime==> test1");
     }
 
     public void test(@Nullable  View view) {
-        Log.d("costTime","costTime==> test");
         a("123");
         b();
         new ktTest().hello(MainActivity.this);
