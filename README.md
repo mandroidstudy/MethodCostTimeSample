@@ -30,11 +30,13 @@ Android耗时方法打印
 ## 如何使用？
 因为比较简单，目前还没有打算发布为插件，需要复制buildSrc的代码。并且编写一个TimeMonitor类，或者复制我项目中的。
 在app下使用插件并且配置属性
+```
 apply plugin: 'org.maove.methodTimeBeat'
 methodTime{
     isOpen = true
     injectClass = "com/maove/libutil/TimeMonitor"
 }
+```
 TimeMonitor类是被插入的类，通过injectClass传给插件，格式是包名+类名 TimeMonitor的方法参数必须是3个并且都是String类型的，eg:
 ```
 public class TimeMonitor {
