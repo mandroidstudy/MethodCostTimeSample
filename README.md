@@ -1,12 +1,12 @@
 # MethodCostTimeSample
-Android耗时方法打印案例代码
+Android耗时方法打印案例代码[博客地址](https://blog.csdn.net/start_mao/article/details/123412151) 
 
 ## 主要技术
 gradle plugin、asm
 
 ## 背景
 最近在做启动优化，我需要打印出所有耗时的方法，或者是打印出所有耗时超过指定时间的方法，为此我写了这个工具，通过编写Plugin，注册Transform，在class文件转为dex文件之前进行字节码插桩，
-在每个方法的开头和结尾插入我指定的方法。具体效果如下：
+在每个方法的开头和结尾插入我指定的方法，具体效果如下。
 插桩前：
 ```
   private void c() {
