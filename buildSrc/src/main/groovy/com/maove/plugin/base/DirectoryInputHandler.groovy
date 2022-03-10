@@ -26,10 +26,13 @@ public class DirectoryInputHandler extends BaseInputHandle{
                 String name = file.name
                 println("handleDirectoryInput file ===>"+name)
                 if (filterClass(name)) {
+                    //把类文件交给ClassReader进行读取
                     ClassReader classReader = new ClassReader(file.bytes)
                     ClassWriter classWriter = new ClassWriter(classReader,ClassWriter.COMPUTE_MAXS)
                     ClassVisitor classVisitor =  closure.call(classWriter)
+                    //accept 方法接受一个 ClassVisitor 实现类，并按照顺序调用 ClassVisitor 中的方法
                     classReader.accept(classVisitor, ClassReader.EXPAND_FRAMES)
+                    //ClassWriter 是将修改后的类的字节码以字节数组的形式输出
                     byte[] code = classWriter.toByteArray()
                     FileOutputStream fos = new FileOutputStream(
                             file.parentFile.absolutePath + File.separator + name)

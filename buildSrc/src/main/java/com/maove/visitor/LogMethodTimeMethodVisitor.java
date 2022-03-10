@@ -18,6 +18,7 @@ public class LogMethodTimeMethodVisitor extends AdviceAdapter {
     private String methodName;
     private String descriptor;
     private MethodConfig methodConfig;
+
     protected LogMethodTimeMethodVisitor(MethodVisitor methodVisitor, int access, String name, String descriptor,MethodConfig methodConfig) {
         super(Opcodes.ASM6, methodVisitor, access, name, descriptor);
         this.className = methodConfig.getClassName();
@@ -26,6 +27,9 @@ public class LogMethodTimeMethodVisitor extends AdviceAdapter {
         this.methodConfig = methodConfig;
     }
 
+    /**
+     * 进入方法时调用
+     */
     @Override
     protected void onMethodEnter() {
         mv.visitLdcInsn(className);
@@ -38,6 +42,10 @@ public class LogMethodTimeMethodVisitor extends AdviceAdapter {
                 false);
     }
 
+    /**
+     * 即将从这个方法退出时调用
+     * @param opcode
+     */
     @Override
     protected void onMethodExit(int opcode) {
         mv.visitLdcInsn(className);
@@ -50,4 +58,11 @@ public class LogMethodTimeMethodVisitor extends AdviceAdapter {
                 false);
     }
 
+    /**
+     * 在访问方法的过程中最后一个被调用的方法
+     */
+    @java.lang.Override
+    public void visitEnd() {
+        super.visitEnd();
+    }
 }

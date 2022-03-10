@@ -1,6 +1,5 @@
 plugins {
-    id 'java-gradle-plugin'
-    id 'groovy'
+    id 'groovy'//使用groovy插件
 }
 
 
@@ -9,6 +8,8 @@ repositories {
     google()
     jcenter()
 }
+
+//指定编写插件需要使用的依赖
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation gradleApi()
@@ -19,6 +20,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
+//指定源码路径
 sourceSets {
     main {
         groovy {

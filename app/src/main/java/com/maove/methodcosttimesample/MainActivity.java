@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Debug;
+import android.os.Trace;
 import android.util.Log;
 import android.view.View;
 

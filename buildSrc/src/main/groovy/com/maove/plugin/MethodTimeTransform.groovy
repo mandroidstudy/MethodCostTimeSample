@@ -65,6 +65,7 @@ class MethodTimeTransform extends Transform{
         //com/maove/libutil/TimeMonitor == > TimeMonitor
         String injectClass = methodConfig.injectClass.substring(methodConfig.injectClass.lastIndexOf("/")+1);
         TransformOutputProvider outputProvider = transformInvocation.outputProvider
+        //删去之前的输出
         if (outputProvider != null)  outputProvider.deleteAll()
         DirectoryInputHandler directoryInputHandler=new DirectoryInputHandler(injectClass)
         JarInputHandler jarInputHandler=new JarInputHandler(injectClass)
